@@ -1,17 +1,155 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Police DM Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="header">
+      <a href="index.html" class="header__logo">
+        <img src="./assets/images/logo.svg" alt="Logo Fisheye" />
+      </a>
+
+      <h1 class="header__titre">Nos Photographes</h1>
+
+      <nav class="nav">
+        <ul class="nav__liste">
+          <li class="nav__liste__lien"><a href="#">#Portrait</a></li>
+          <li class="nav__liste__lien"><a href="#">#Art</a></li>
+          <li class="nav__liste__lien"><a href="#">#Fashion</a></li>
+          <li class="nav__liste__lien"><a href="#">#Architecture</a></li>
+          <li class="nav__liste__lien"><a href="#">#Travel</a></li>
+          <li class="nav__liste__lien"><a href="#">#Sport</a></li>
+          <li class="nav__liste__lien"><a href="#">#Animals</a></li>
+          <li class="nav__liste__lien"><a href="#">#Events</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article class="card">
+        <a href="#" class="card_img">
+          <img src="/Sample Photos/Mimi/Portrait_Nora.jpg" alt="" />
+          <h2>Mimi Keel</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>London, UK</h3>
+          <p>Voir le beau dans le quotidien</p>
+          <p>400€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#portrait</a>
+          <a href="#">#events</a>
+          <a href="#">#travel</a>
+          <a href="#">animals</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="#" class="card_img">
+          <img
+            src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg"
+            alt=""
+          />
+          <h2>Ellie-Rose Wilkens</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>Paris, France</h3>
+          <p>Travaille sur des compositions complexes</p>
+          <p>250€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#sports</a>
+          <a href="#">#architecture</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="#" class="card_img">
+          <img src="/Sample Photos/Tracy/Fashion_Urban_Jungle.jpg" alt="" />
+          <h2>Tracy Galindo</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>Montreal, Canada</h3>
+          <p>Photographe freelance</p>
+          <p>500€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#art</a>
+          <a href="#">#fashion</a>
+          <a href="#">#events</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="#" class="card_img">
+          <img src="/Sample Photos/Nabeel/Travel_Outdoor_Baths.jpg" alt="" />
+          <h2>Nabeel Bradford</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>Mexico City, Mexico</h3>
+          <p>Je vais toujours de l'avant</p>
+          <p>350€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#travel</a>
+          <a href="#">#portraits</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="#" class="card_img">
+          <img
+            src="/Sample Photos/Rhode/Fashion_Melody_Red_on_Stripes.jpg"
+            alt=""
+          />
+          <h2>Rhode Dubois</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>Barcelona, Spain</h3>
+          <p>Créatrice de souvenirs</p>
+          <p>375€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#sport</a>
+          <a href="#">#fashion</a>
+          <a href="#">#events</a>
+          <a href="#">#animals</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="#" class="card_img">
+          <img src="/Sample Photos/Marcel/Travel_Tower.jpg" alt="" />
+          <h2>Marcel Nikolic</h2>
+        </a>
+        <div class="card_text-content">
+          <h3>Berlin, Germany</h3>
+          <p>Toujours à la recherche de LA photo</p>
+          <p>300€/jour</p>
+        </div>
+        <div class="card_link">
+          <a href="#">#travel</a>
+          <a href="#">#architecture</a>
+        </div>
+      </article>
+    </main>
 
     <script src="./script.js"></script>
-</body>
-
+  </body>
 </html>

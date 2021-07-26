@@ -1,0 +1,24 @@
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  margin: 2.6rem 7%;
+  line-height: 1rem;
+}
+h1 {
+  font-size: 2.25rem;
+  color: $couleur-primaire;
+}
+h2 {
+  font-size: 2.25rem;
+  color: $couleur-secondaire;
+}
+h3 {
+  font-size: 0.81rem;
+  color: $couleur-primaire;
+}
+a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $couleur-primaire;
+  text-decoration: none;
+}

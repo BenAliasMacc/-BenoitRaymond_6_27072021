@@ -1,1 +1,71 @@
-// hello
+@import "./mini-reset";
+
+@import "./utils/variables";
+
+@import "./base/base&typographie";
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  &__logo {
+    width: 14%;
+    min-width: 150px;
+  }
+  &__titre {
+    order: 1;
+  }
+}
+.nav {
+  display: flex;
+  align-items: center;
+  &__liste {
+    display: flex;
+    &__lien {
+      border: solid 0.5px $couleur-tertiaire;
+      border-radius: 11px;
+      margin: auto 5px;
+      padding: 3px 5px;
+    }
+  }
+}
+@media (max-width: 1276px) {
+  .header {
+    &__titre {
+      order: 0;
+    }
+  }
+  .nav {
+    width: 100%;
+    margin-top: 2.5rem;
+    &__liste {
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      &__lien {
+        margin-bottom: 0.375rem;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    &__titre {
+      font-size: 3.7vw;
+    }
+  }
+  .nav {
+    &__liste {
+      justify-content: center;
+    }
+  }
+}
+@media (max-width: 375px) {
+  .header {
+    &__titre {
+      font-size: 0.875rem;
+    }
+  }
+}
