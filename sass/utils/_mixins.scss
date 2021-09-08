@@ -4,3 +4,21 @@
   margin: auto 5px;
   padding: 3px 5px;
 }
+
+@mixin illustration-artiste {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, 0.35);
+}
+
+@mixin bouton {
+  width: 170px;
+  height: 69px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: $couleur-primaire;
+  cursor: pointer;
+}

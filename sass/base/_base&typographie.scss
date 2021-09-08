@@ -1,24 +1,73 @@
+/* GENERAL - INDEX */
 body {
+  align-self: center;
+  max-width: 1440px;
   font-family: "DM Sans", sans-serif;
   font-size: 0.625rem;
-  margin: 2.6rem 7%;
+  margin: 2.6rem auto;
   line-height: 1rem;
 }
 h1 {
   font-size: 2.25rem;
+  line-height: 2.87rem;
   color: $couleur-primaire;
 }
 h2 {
   font-size: 2.25rem;
+  line-height: 2.87rem;
   color: $couleur-secondaire;
 }
 h3 {
   font-size: 0.81rem;
+  line-height: 1rem;
+  margin-bottom: 3px;
   color: $couleur-primaire;
+}
+p {
+  font-size: 0.63rem;
+  line-height: 0.81rem;
 }
 a {
   font-size: 0.75rem;
+  line-height: 0.94rem;
   font-weight: 500;
+  font-family: "DM Sans", sans-serif;
   color: $couleur-primaire;
   text-decoration: none;
+}
+button {
+  font-size: 0.75rem;
+  line-height: 0.94rem;
+  font-weight: 500;
+  color: $couleur-primaire;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* PAGE PHOTOGRAPHE */
+.page-photographe {
+  .main {
+    display: block;
+  }
+  & h1 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+    color: $couleur-secondaire;
+  }
+  & h2 {
+    font-size: 1.5rem;
+    line-height: 1.94rem;
+    color: $couleur-primaire;
+  }
+  & p, & a, & li {
+    font-size: 1.13rem;
+    line-height: 1.33rem;
+  }
+}
+@media (max-width: 915px) {
+  .page-photographe {
+      margin-left: 5%;
+      margin-right: 5%;
+  }
 }

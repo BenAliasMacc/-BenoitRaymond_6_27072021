@@ -17,6 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/39e2a55935.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -29,139 +33,24 @@
 
       <nav class="nav">
         <ul class="nav__liste">
-          <li class="nav__liste__lien"><a href="#">#Portrait</a></li>
-          <li class="nav__liste__lien"><a href="#">#Art</a></li>
-          <li class="nav__liste__lien"><a href="#">#Fashion</a></li>
-          <li class="nav__liste__lien"><a href="#">#Architecture</a></li>
-          <li class="nav__liste__lien"><a href="#">#Travel</a></li>
-          <li class="nav__liste__lien"><a href="#">#Sport</a></li>
-          <li class="nav__liste__lien"><a href="#">#Animals</a></li>
-          <li class="nav__liste__lien"><a href="#">#Events</a></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="portrait">#Portrait</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="art">#Art</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="fashion">#Fashion</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="architecture">#Architecture</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="travel">#Travel</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="sport">#Sport</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="animals">#Animals</button></li>
+          <li class="nav__liste__lien"><button class="lien-des-tags" tag="events">#Events</button></li>
         </ul>
       </nav>
+
+      <button class="passer-au-contenu"><a href="#main">Passer au contenu</a></button>  
     </header>
 
-    <main class="main">
-      <article class="card">
-        <a href="#" class="card__img">
-          <img src="./Sample Photos/Miniatures/Portrait_Nora.png" alt="" />
-          <h2>Mimi Keel</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">London, UK</h3>
-          <p class="card__text-content__slogan">
-            Voir le beau dans le quotidien
-          </p>
-          <p class="card__text-content__prix">400€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#portrait</a>
-          <a href="#">#events</a>
-          <a href="#">#travel</a>
-          <a href="#">animals</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="#" class="card__img">
-          <img
-            src="./Sample Photos/Miniatures/Architecture_Horseshoe.png"
-            alt=""
-          />
-          <h2>Ellie-Rose Wilkens</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">Paris, France</h3>
-          <p class="card__text-content__slogan">
-            Travaille sur des compositions complexes
-          </p>
-          <p class="card__text-content__prix">250€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#sports</a>
-          <a href="#">#architecture</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="#" class="card__img">
-          <img
-            src="./Sample Photos/Miniatures/Fashion_Urban_Jungle.png"
-            alt=""
-          />
-          <h2>Tracy Galindo</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">Montreal, Canada</h3>
-          <p class="card__text-content__slogan">Photographe freelance</p>
-          <p class="card__text-content__prix">500€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#art</a>
-          <a href="#">#fashion</a>
-          <a href="#">#events</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="#" class="card__img">
-          <img
-            src="./Sample Photos/Miniatures/Travel_Outdoor_Baths.png"
-            alt=""
-          />
-          <h2>Nabeel Bradford</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">Mexico City, Mexico</h3>
-          <p class="card__text-content__slogan">Je vais toujours de l'avant</p>
-          <p class="card__text-content__prix">350€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#travel</a>
-          <a href="#">#portraits</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="#" class="card__img">
-          <img
-            src="./Sample Photos/Miniatures/Fashion_Melody_Red_on_Stripes.png"
-            alt=""
-          />
-          <h2>Rhode Dubois</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">Barcelona, Spain</h3>
-          <p class="card__text-content__slogan">Créatrice de souvenirs</p>
-          <p class="card__text-content__prix">375€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#sport</a>
-          <a href="#">#fashion</a>
-          <a href="#">#events</a>
-          <a href="#">#animals</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="#" class="card__img">
-          <img src="./Sample Photos/Miniatures/Travel_Tower.png" alt="" />
-          <h2>Marcel Nikolic</h2>
-        </a>
-        <div class="card__text-content">
-          <h3 class="card__text-content__titre">Berlin, Germany</h3>
-          <p class="card__text-content__slogan">
-            Toujours à la recherche de LA photo
-          </p>
-          <p class="card__text-content__prix">300€/jour</p>
-        </div>
-        <div class="card__link">
-          <a href="#">#travel</a>
-          <a href="#">#architecture</a>
-        </div>
-      </article>
+    <main class="main" id="main">
+     
     </main>
 
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
