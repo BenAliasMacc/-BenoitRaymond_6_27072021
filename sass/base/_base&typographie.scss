@@ -1,48 +1,45 @@
 /* GENERAL - INDEX */
+* {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
 body {
   align-self: center;
   max-width: 1440px;
   font-family: "DM Sans", sans-serif;
-  font-size: 0.625rem;
-  margin: 2.6rem auto;
-  line-height: 1rem;
+  margin: 44px auto;
+}
+h1,
+h2,
+h3 {
+  font-weight: normal;
 }
 h1 {
-  font-size: 2.25rem;
-  line-height: 2.87rem;
+  font-size: 1.75rem;
   color: $couleur-primaire;
 }
 h2 {
-  font-size: 2.25rem;
-  line-height: 2.87rem;
+  font-size: 1.75rem;
   color: $couleur-secondaire;
 }
 h3 {
-  font-size: 0.81rem;
-  line-height: 1rem;
+  font-size: 1rem;
   margin-bottom: 3px;
   color: $couleur-primaire;
 }
 p {
-  font-size: 0.63rem;
-  line-height: 0.81rem;
+  font-size: 1rem;
 }
-a {
-  font-size: 0.75rem;
-  line-height: 0.94rem;
-  font-weight: 500;
+p,
+a,
+li,
+button {
   font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
   color: $couleur-primaire;
   text-decoration: none;
-}
-button {
-  font-size: 0.75rem;
-  line-height: 0.94rem;
-  font-weight: 500;
-  color: $couleur-primaire;
-  background-color: white;
-  border: none;
-  cursor: pointer;
+  list-style-type: none;
 }
 
 /* PAGE PHOTOGRAPHE */
@@ -51,23 +48,11 @@ button {
     display: block;
   }
   & h1 {
-    font-size: 4rem;
-    line-height: 5.2rem;
+    font-size: 3rem;
     color: $couleur-secondaire;
   }
   & h2 {
-    font-size: 1.5rem;
-    line-height: 1.94rem;
+    font-size: 1.25rem;
     color: $couleur-primaire;
-  }
-  & p, & a, & li {
-    font-size: 1.13rem;
-    line-height: 1.33rem;
-  }
-}
-@media (max-width: 915px) {
-  .page-photographe {
-      margin-left: 5%;
-      margin-right: 5%;
   }
 }

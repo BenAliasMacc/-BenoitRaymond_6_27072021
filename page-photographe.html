@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="shortcut icon" href="./assets/images/logo.svg" />
+    <title>Fisheye</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Police DM Sans -->
@@ -24,31 +25,58 @@
   </head>
 
   <body class="page-photographe">
+    <!-- HEADER -->
     <header class="header">
       <a href="index.html" class="header__logo">
         <img src="./assets/images/logo.svg" alt="Logo Fisheye" />
       </a>
     </header>
 
+    <!-- MAIN -->
     <main class="main">
-      <section class="artiste"></section>
+      <!-- Section 1 : Profil photographe -->
+      <section class="photographe">
+        <div class="photographe__informations"></div>
 
-      <section class="photographies">
-        <div class="photographies__filtre">
-          <p>Trier par</p>
-          <ul class="photographies__filtre__liste">
-            <li class="photographies__filtre__liste__active">
-              <span class="trie-actuel">Popularité</span>
-              <i class="fa fa-chevron-down"></i>
-            </li>
-            <li class="photographies__filtre__liste__inactive option1">Date</li>
-            <li class="photographies__filtre__liste__inactive">Titre</li>
-          </ul>
-        </div>
+        <div class="photographe__illustration"></div>
 
-        <div class="cards"></div>
+        <button class="photographe__contacte">Contactez-moi</button>
       </section>
 
+      <!-- Section 2 : Filtre -->
+      <section class="filtre">
+        <p>Trier par</p>
+        <ul class="filtre__liste">
+          <li class="filtre__liste__active">
+            <span class="trie-actuel">Popularité</span>
+            <i class="fa fa-chevron-down"></i>
+          </li>
+          <li class="filtre__liste__inactive option1">Date</li>
+          <li class="filtre__liste__inactive">Titre</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 : cartes -->
+      <section class="cartes"></section>
+
+      <!-- Section 4 : container total likes et prix -->
+      <section class="container">
+        <div class="container__like">
+          <p>
+            <span id="total-like">0</span>
+            <i id="coeur" class="fas fa-heart"></i>
+          </p>
+        </div>
+        <div class="container__prix">
+          <p id="prix-journalier"><span id="prix"></span> / jour</p>
+        </div>
+      </section>
+
+      <!-- -----------------------------------------------------
+        --------------------- Modal / Lightbox -------------------
+        --------------------------------------------------------->
+
+      <!-- Section 5 : modal -->
       <section class="modal">
         <div class="modal__content">
           <span class="modal__content__close"
@@ -57,40 +85,42 @@
           <h2>Contactez-moi<br />Mimi Keel</h2>
           <form name="contacte" action="./index.html" method="post" novalidate>
             <label class="modal__content--typo" for="prenom">Prénom</label>
-            <br />
             <input class="modal__content__form-data" type="text" id="prenom" />
-            <br />
             <label class="modal__content--typo" for="nom">Nom</label>
-            <br />
             <input class="modal__content__form-data" type="text" id="nom" />
-            <br />
             <label class="modal__content--typo" for="email">Email</label>
-            <br />
             <input class="modal__content__form-data" type="email" id="email" />
-            <br />
             <label class="modal__content--typo" for="message"
               >Votre message</label
             >
-            <br />
             <textarea
               name="message"
               id="message"
               cols="30"
               rows="10"
             ></textarea>
-            <br />
-            <input
-              class="modal__content--typo modal__content__submit"
-              type="submit"
-            />
+            <input class="modal__content__submit" type="submit" />
           </form>
         </div>
       </section>
-
-      <section class="lightbox">
-
-      </section>
     </main>
+
+    <!-- Section 6 : Lightbox -->
+    <section class="lightbox">
+      <div class="lightbox__container">
+        <span class="lightbox__container__prev"
+          ><img src="./assets/images/prev.svg" alt=""
+        /></span>
+        <figure class="lightbox__container__media"></figure>
+        <span class="lightbox__container__next"
+          ><img src="./assets/images/next.svg" alt=""
+        /></span>
+        <span class="lightbox__container__close"
+          ><img src="./assets/images/close.svg" alt=""
+        /></span>
+      </div>
+    </section>
+
     <script src="./page-photographe.js"></script>
   </body>
 </html>

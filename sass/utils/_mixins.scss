@@ -1,16 +1,18 @@
-@mixin tags {
+@mixin tags($background: white) {
   border: solid 0.5px $couleur-tertiaire;
+  font-weight: 500;
   border-radius: 11px;
   margin: auto 5px;
   padding: 3px 5px;
+  background-color: $background;
 }
 
-@mixin illustration-artiste {
+@mixin illustration-photographe {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, 0.35);
+  box-shadow: $ombres;
 }
 
 @mixin bouton {
