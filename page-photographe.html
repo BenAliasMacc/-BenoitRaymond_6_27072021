@@ -40,27 +40,46 @@
 
         <div class="photographe__illustration"></div>
 
-        <button class="photographe__contacte" aria-label="Contact me">
+        <button class="photographe__contacte" aria-label="Contacte">
           Contactez-moi
         </button>
       </section>
 
       <!-- Section 2 : Filtre -->
       <section class="filtre">
-        <p id="order-by">Trier par</p>
+        <p class="filtre__label" id="filtre-label">Trier par</p>
         <ul
           class="filtre__liste"
+          aria-controls="dropdown"
+          aria-labelledby="filtre-label"
           aria-haspopup="listbox"
           aria-expanded="false"
-          aria-labelledby="order-by"
-          role="button"
         >
-          <li class="filtre__liste__active">
+          <li
+            class="filtre__liste__active"
+            aria-selected="true"
+            role="button"
+            tabindex="0"
+          >
             <div class="trie-actuel">Popularité</div>
             <i class="fa fa-chevron-down"></i>
           </li>
-          <li class="filtre__liste__inactive option1">Date</li>
-          <li class="filtre__liste__inactive">Titre</li>
+          <li
+            class="filtre__liste__inactive option1"
+            aria-selected="false"
+            role="listbox"
+            tabindex="0"
+          >
+            Date
+          </li>
+          <li
+            class="filtre__liste__inactive"
+            aria-selected="false"
+            role="listbox"
+            tabindex="0"
+          >
+            Titre
+          </li>
         </ul>
       </section>
 

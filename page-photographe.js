@@ -132,15 +132,13 @@ const illustrationsPhotographe = () => {
 // Menu déroulant Filtre
 //----------------------------------------------------
 const actionFiltre = () => {
-  boutonFiltre.addEventListener("click", () => {
-    chevronFiltre.classList.toggle("rotation");
-    listeFiltres.forEach((element) => {
-      element.classList.toggle("ouverture");
-    });
+  chevronFiltre.classList.toggle("rotation");
+  listeFiltres.forEach((element) => {
+    element.classList.toggle("ouverture");
   });
 };
 
-actionFiltre();
+boutonFiltre.addEventListener("click", () => actionFiltre());
 
 // Affichage des médias
 //-----------------------------------------------------
@@ -166,7 +164,7 @@ const affichageMedias = () => {
             detailsMedia.title
           } "href="./Sample Photos/${photographe.name}/${
       detailsMedia.image || detailsMedia.video
-    }" data-mediaId="${detailsMedia.id}")">
+    }" data-mediaId="${detailsMedia.id}") tabindex="0">
               ${createMediaFactory(photographe.name, detailsMedia)}
           </div>
           <div class="carte__infos">
@@ -252,7 +250,7 @@ const trapModal = (e) => {
   }
 
   if (e.key === "Escape" || e.key === "Esc") {
-    fermetureModal();
+    fermetureModal(e);
   }
 };
 

@@ -99,6 +99,10 @@ button {
   font-size: 0.75rem;
   cursor: pointer;
 }
+.nav__liste__lien button:hover {
+  background-color: #901c1c;
+  color: white;
+}
 
 @media (max-width: 1140px) {
   .header__titre {
@@ -219,6 +223,10 @@ button {
   background-color: white;
   font-size: 0.75rem;
   cursor: pointer;
+}
+.card__liens button:hover {
+  background-color: #901c1c;
+  color: white;
 }
 
 @media (max-width: 992px) {
@@ -352,7 +360,7 @@ button {
   position: relative;
   margin-bottom: 58px;
 }
-.filtre p {
+.filtre__label {
   color: black;
   font-weight: 700;
   padding-top: 9px;

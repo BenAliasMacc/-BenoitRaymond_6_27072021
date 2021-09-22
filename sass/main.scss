@@ -32,6 +32,10 @@
       @include tags;
       font-size: 0.75rem;
       cursor: pointer;
+      &:hover {
+        background-color: $couleur-primaire;
+        color: white;
+      }
     }
   }
 }
@@ -147,6 +151,10 @@
       @include tags;
       font-size: 0.75rem;
       cursor: pointer;
+      &:hover {
+        background-color: $couleur-primaire;
+        color: white;
+      }
     }
   }
 }
@@ -273,7 +281,7 @@
 .filtre {
   position: relative;
   margin-bottom: 58px;
-  & p {
+  &__label {
     color: black;
     font-weight: 700;
     padding-top: 9px;

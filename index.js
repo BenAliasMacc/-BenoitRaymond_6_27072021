@@ -11,8 +11,8 @@ let currentArrayOfPhotographe = [];
 
 // Récupération des données du fetch
 //------------------------------------------------------------
-const fetchAllData = () => {
-  fetch("./data.json")
+const fetchAllData = async () => {
+  await fetch("./data.json")
     .then((res) => res.json())
     .then((data) => {
       photographes = data.photographers;
@@ -49,20 +49,20 @@ const affichagePhotographes = (arrayOfPhotographe) => {
 
     main.innerHTML += `
         <article class="card">
-        <a href="./page-photographe.html?id=${photographe.id}&name=${photographe.name}" class="card__image">
-          <img src="./Sample Photos/Photographers ID Photos/${photographe.portrait}" alt="" />
-          <h2>${photographe.name}</h2>
-        </a>
-        <div class="card__infos">
-          <h3 class="card__infos__titre">${photographe.city}, ${photographe.country}</h3>
-          <p class="card__infos__slogan">
-            ${photographe.tagline}
-          </p>
-          <p class="card__infos__prix">${photographe.price}€/jour</p>
-        </div>
-        <div class="card__liens">
-          ${tagHTML}
-        </div>
+          <a href="./page-photographe.html?id=${photographe.id}&name=${photographe.name}" class="card__image">
+            <img src="./Sample Photos/Photographers ID Photos/${photographe.portrait}" alt="portrait ${photographe.name}" />
+            <h2>${photographe.name}</h2>
+          </a>
+          <div class="card__infos">
+            <h3 class="card__infos__titre">${photographe.city}, ${photographe.country}</h3>
+            <p class="card__infos__slogan">
+              ${photographe.tagline}
+            </p>
+            <p class="card__infos__prix" tabindex="0" aria-label="${photographe.price}€ par jour">${photographe.price}€/jour</p>
+          </div>
+          <div class="card__liens"  >
+            ${tagHTML}  
+          </div>
         </article>
         `;
   });
