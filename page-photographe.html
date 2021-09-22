@@ -28,7 +28,7 @@
     <!-- HEADER -->
     <header class="header">
       <a href="index.html" class="header__logo">
-        <img src="./assets/images/logo.svg" alt="Logo Fisheye" />
+        <img src="./assets/images/logo.svg" alt="Fisheye Home page" />
       </a>
     </header>
 
@@ -40,15 +40,23 @@
 
         <div class="photographe__illustration"></div>
 
-        <button class="photographe__contacte">Contactez-moi</button>
+        <button class="photographe__contacte" aria-label="Contact me">
+          Contactez-moi
+        </button>
       </section>
 
       <!-- Section 2 : Filtre -->
       <section class="filtre">
-        <p>Trier par</p>
-        <ul class="filtre__liste">
+        <p id="order-by">Trier par</p>
+        <ul
+          class="filtre__liste"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-labelledby="order-by"
+          role="button"
+        >
           <li class="filtre__liste__active">
-            <span class="trie-actuel">Popularité</span>
+            <div class="trie-actuel">Popularité</div>
             <i class="fa fa-chevron-down"></i>
           </li>
           <li class="filtre__liste__inactive option1">Date</li>
@@ -79,17 +87,26 @@
       <!-- Section 5 : modal -->
       <section class="modal">
         <div class="modal__content">
-          <span class="modal__content__close"
-            ><img src="./assets/images/croix.png" alt="" />
-          </span>
           <h2>Contactez-moi<br />Mimi Keel</h2>
-          <form name="contacte" action="./index.html" method="post" novalidate>
+          <form>
             <label class="modal__content--typo" for="prenom">Prénom</label>
-            <input class="modal__content__form-data" type="text" id="prenom" />
+            <input
+              class="modal__content__form-data focus-modal"
+              type="text"
+              id="prenom"
+            />
             <label class="modal__content--typo" for="nom">Nom</label>
-            <input class="modal__content__form-data" type="text" id="nom" />
+            <input
+              class="modal__content__form-data focus-modal"
+              type="text"
+              id="nom"
+            />
             <label class="modal__content--typo" for="email">Email</label>
-            <input class="modal__content__form-data" type="email" id="email" />
+            <input
+              class="modal__content__form-data focus-modal"
+              type="email"
+              id="email"
+            />
             <label class="modal__content--typo" for="message"
               >Votre message</label
             >
@@ -98,8 +115,13 @@
               id="message"
               cols="30"
               rows="10"
-            ></textarea>
-            <input class="modal__content__submit" type="submit" />
+              class="focus-modal"
+            >
+            </textarea>
+            <input class="modal__content__submit focus-modal" type="submit" />
+            <button class="modal__content__close focus-modal">
+              <img src="./assets/images/close-white.svg" alt="close button" />
+            </button>
           </form>
         </div>
       </section>
@@ -108,16 +130,16 @@
     <!-- Section 6 : Lightbox -->
     <section class="lightbox">
       <div class="lightbox__container">
-        <span class="lightbox__container__prev"
-          ><img src="./assets/images/prev.svg" alt=""
-        /></span>
+        <button class="lightbox__container__prev focus-lightbox" type="button">
+          <img src="./assets/images/prev.svg" alt="" />
+        </button>
         <figure class="lightbox__container__media"></figure>
-        <span class="lightbox__container__next"
-          ><img src="./assets/images/next.svg" alt=""
-        /></span>
-        <span class="lightbox__container__close"
-          ><img src="./assets/images/close.svg" alt=""
-        /></span>
+        <button class="lightbox__container__next focus-lightbox" type="button">
+          <img src="./assets/images/next.svg" alt="" />
+        </button>
+        <button class="lightbox__container__close focus-lightbox" type="button">
+          <img src="./assets/images/close-red.svg" alt="close button" />
+        </button>
       </div>
     </section>
 

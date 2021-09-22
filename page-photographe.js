@@ -1,6 +1,7 @@
 // DOM
 //--------------------------------------------------
 // Général
+const body = document.querySelector("body");
 const main = document.querySelector("main");
 
 // Profil photographe
@@ -23,6 +24,8 @@ const cartes = document.querySelector(".cartes");
 const modal = document.querySelector(".modal");
 const BoutonContact = document.querySelector(".photographe__contacte");
 const closeModal = document.querySelector(".modal__content__close");
+const focusModal = document.getElementsByClassName("focus-modal");
+const submit = document.querySelector(".modal__content__submit");
 
 // LightBox
 const lightbox = document.querySelector(".lightbox");
@@ -30,6 +33,7 @@ const lightboxContainer = document.querySelector(".lightbox__container__media");
 const closeLightbox = document.querySelector(".lightbox__container__close");
 const lightboxNext = document.querySelector(".lightbox__container__next");
 const lightboxPrev = document.querySelector(".lightbox__container__prev");
+const focusLightbox = document.getElementsByClassName("focus-lightbox");
 
 // Container like et prix
 const totalLikes = document.getElementById("total-like");
@@ -51,6 +55,10 @@ let photographeMedias = [];
 let count = 0;
 let currentIndex = 0;
 let tagHTML = "";
+let premierFocusModal = focusModal[0];
+let dernierFocusModal = focusModal[focusModal.length - 1];
+let premierFocusLightbox = focusLightbox[0];
+let dernierFocusLightbox = focusLightbox[focusLightbox.length - 1];
 
 // Récupération des données du fetch
 //------------------------------------------------------------
@@ -96,7 +104,7 @@ const tagsPhotographe = () => {
   photographe.tags.forEach((tag) => {
     tagHTML += `
       <li class="photographe__informations__tags__tag">
-        <button value"${tag}">#${tag}</button>
+        <button tag="${tag}" type="button">#${tag}</button>
       </li>
     `;
   });
@@ -117,7 +125,7 @@ const informationsPhotographe = () => {
 
 const illustrationsPhotographe = () => {
   photographeIllustrations.innerHTML = `
-    <img src="./Sample Photos/Photographers ID Photos/${photographe.portrait}" alt=""/>
+    <img src="./Sample Photos/Photographers ID Photos/${photographe.portrait}" alt="${photographe.name}"/>
   `;
 };
 
@@ -140,7 +148,7 @@ function createMediaFactory(photographe, elt) {
   if (elt.hasOwnProperty("image")) {
     return `<img src="./Sample Photos/${photographe}/${elt.image}">`;
   } else if (elt.hasOwnProperty("video")) {
-    return `<video src="./Sample Photos/${photographe}/${elt.video}" controls></video>`;
+    return `<video src="./Sample Photos/${photographe}/${elt.video}"></video>`;
   }
 }
 
@@ -163,13 +171,13 @@ const affichageMedias = () => {
           </div>
           <div class="carte__infos">
             <h2 class="carte__infos__titre">${detailsMedia.title}</h2>
-            <div class="carte__infos__favs" data-select="false" data-likes="${
+            <button class="carte__infos__favs" data-select="false" data-likes="${
               detailsMedia.likes
-            }">
+            }" type="button">
               <span class="nombres-de-likes">${
                 detailsMedia.likes
-              }</span> <i class="fas fa-heart"></i>
-            </div>
+              }</span> <i class="fas fa-heart" aria-label="likes"></i>
+            </button>
           </div>
         </article>
       `;
@@ -207,8 +215,48 @@ const trieMedias = () => {
 // Modal
 //------------------------------------------------
 // Ouverture - Fermeture
-BoutonContact.addEventListener("click", () => (modal.style.display = "block"));
-closeModal.addEventListener("click", () => (modal.style.display = "none"));
+BoutonContact.addEventListener("click", () => {
+  body.style.overflow = "hidden";
+  modal.style.display = "block";
+  premierFocusModal.focus();
+});
+
+const fermetureModal = (e) => {
+  e.preventDefault();
+  body.style.overflow = "visible";
+  modal.style.display = "none";
+};
+
+closeModal.addEventListener("click", (e) => {
+  fermetureModal(e);
+});
+
+submit.addEventListener("click", (e) => {
+  fermetureModal(e);
+});
+
+// Accessibilité avec la touche Tab
+const trapModal = (e) => {
+  if (e.key === "Tab") {
+    if (e.shiftKey) {
+      if (document.activeElement === premierFocusModal) {
+        e.preventDefault();
+        dernierFocusModal.focus();
+      }
+    } else {
+      if (document.activeElement === dernierFocusModal) {
+        e.preventDefault();
+        premierFocusModal.focus();
+      }
+    }
+  }
+
+  if (e.key === "Escape" || e.key === "Esc") {
+    fermetureModal();
+  }
+};
+
+modal.addEventListener("keydown", trapModal);
 
 // Incrémentation des likes et container total like et prix
 //------------------------------------------------------------
@@ -224,12 +272,18 @@ const incrementationLike = () => {
 };
 
 const ajoutLike = (like) => {
+  const coeur = document.querySelectorAll(".fa-heart");
+  console.log(coeur);
+  console.log(like);
+  console.log(like.childNodes[3]);
   if (like.dataset.select == "true") {
     like.dataset.select = "false";
     like.childNodes[1].textContent = Number(like.childNodes[1].textContent) - 1;
+    like.childNodes[3].classList.remove("remplissage");
   } else {
     like.dataset.select = "true";
     like.childNodes[1].textContent = Number(like.childNodes[1].textContent) + 1;
+    like.childNodes[3].classList.add("remplissage");
   }
 };
 
@@ -253,6 +307,7 @@ const prixJournalier = () => {
 
 // Ouverture Lightbox
 const ouvrirLightbox = () => {
+  premierFocusLightbox.focus();
   const cartes = document.querySelectorAll(".carte__media");
   cartes.forEach((carte, index) =>
     carte.addEventListener("click", () => {
@@ -305,7 +360,7 @@ lightboxPrev.addEventListener("click", showPrev);
 // Navigation Clavier
 const navigationClavierLightbox = () => {
   document.addEventListener("keyup", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "Escape" || e.key === "Esc") {
       fermerLightbox();
     } else if (e.key === "ArrowLeft") {
       showPrev();
@@ -316,3 +371,22 @@ const navigationClavierLightbox = () => {
 };
 
 navigationClavierLightbox();
+
+// Accessibilité avec la touche Tab
+const trapLightbox = (e) => {
+  if (e.key === "Tab") {
+    if (e.shiftKey) {
+      if (document.activeElement === premierFocusLightbox) {
+        e.preventDefault();
+        dernierFocusLightbox.focus();
+      }
+    } else {
+      if (document.activeElement === dernierFocusLightbox) {
+        e.preventDefault();
+        premierFocusLightbox.focus();
+      }
+    }
+  }
+};
+
+lightbox.addEventListener("keydown", trapLightbox);

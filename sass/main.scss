@@ -83,20 +83,20 @@
 
 .passer-au-contenu {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 1%;
   left: 50%;
   transform: translateX(-50%);
-  height: 25px;
-  width: 170px;
+  height: 30px;
+  width: 182px;
   background-color: #db8876;
   border-radius: 10px;
   border: none;
-  & a {
-    font-size: 1rem;
-    font-weight: 700;
-    color: black;
-  }
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
 }
 
 /* MAIN */
@@ -231,6 +231,9 @@
       transform: translateX(-50%);
       bottom: 20px;
     }
+    &__informations__tags__tag button {
+      background-color: white;
+    }
   }
 }
 @media (max-width: 768px) {
@@ -356,6 +359,8 @@
       padding-right: 25px;
       font-size: 1.5rem;
       color: $couleur-primaire;
+      background: white;
+      border: none;
       cursor: pointer;
       & span {
         font-size: 1.25rem;
@@ -365,8 +370,25 @@
         top: 4.5px;
         left: 30px;
         font-size: 1rem;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px;
       }
     }
+  }
+}
+.remplissage {
+  background: $couleur-primaire;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px transparent;
+  animation: remplissage-coeur 1s;
+}
+@keyframes remplissage-coeur {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
   }
 }
 @media (max-width: 1315px) {
@@ -442,20 +464,17 @@
   &__content {
     position: relative;
     margin: 5%;
-    & form {
-      display: flex;
-      flex-direction: column;
-    }
     &__close {
       position: absolute;
       top: 20px;
       left: 93%;
-      font-weight: 100;
+      background-color: #db8876;
+      border: none;
       cursor: pointer;
-      & img {
-        height: 30px;
-        width: 30px;
-      }
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
     }
     & h2 {
       font-size: 3rem;
@@ -536,24 +555,30 @@
     align-items: center;
     height: 80vh;
     gap: 1rem;
-    &__next img,
-    &__prev img {
+    &__next,
+    &__prev {
       width: auto;
       height: 35px;
       top: 50%;
       right: 20%;
       margin-top: -14px;
+      background-color: white;
+      border: none;
+      cursor: pointer;
     }
     &__prev {
       left: 20%;
     }
-    &__close img {
+    &__close {
       width: 30px;
       height: 30px;
       position: absolute;
-      right: 10px;
+      right: 5px;
       top: -20px;
       opacity: 0.5;
+      background-color: white;
+      border: none;
+      cursor: pointer;
     }
     &__media {
       & img,
@@ -571,13 +596,13 @@
     }
   }
 }
-.lightbox span {
+.lightbox button {
   z-index: 11;
   opacity: 0.5;
   cursor: pointer;
   transition: opacity 0.3s;
 }
-.lightbox span:hover {
+.lightbox button:hover {
   opacity: 1;
 }
 .lightbox .fermeture {
@@ -591,10 +616,14 @@
       width: auto;
       height: 25px;
     }
-    &__close img {
+    &__close {
       width: 20px;
       height: 20px;
-      right: 14px;
+      right: -8px;
+      & img {
+        width: 100%;
+        height: 100%;
+      }
     }
     &__media {
       & img,

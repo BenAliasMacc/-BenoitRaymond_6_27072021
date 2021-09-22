@@ -143,17 +143,17 @@ button {
 }
 .passer-au-contenu {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 1%;
   left: 50%;
   transform: translateX(-50%);
-  height: 25px;
-  width: 170px;
+  height: 30px;
+  width: 182px;
   background-color: #db8876;
   border-radius: 10px;
   border: none;
-}
-.passer-au-contenu a {
   font-size: 1rem;
   font-weight: 700;
   color: black;
@@ -315,6 +315,9 @@ button {
     transform: translateX(-50%);
     bottom: 20px;
   }
+  .photographe__informations__tags__tag button {
+    background-color: white;
+  }
 }
 @media (max-width: 768px) {
   .photographe {
@@ -442,6 +445,8 @@ button {
   padding-right: 25px;
   font-size: 1.5rem;
   color: #901c1c;
+  background: white;
+  border: none;
   cursor: pointer;
 }
 .carte__infos__favs span {
@@ -452,8 +457,26 @@ button {
   top: 4.5px;
   left: 30px;
   font-size: 1rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px;
 }
 
+.remplissage {
+  background: #901c1c;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px transparent;
+  animation: remplissage-coeur 1s;
+}
+
+@keyframes remplissage-coeur {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
 @media (max-width: 1315px) {
   .cartes {
     grid-template-columns: 350px 350px;
@@ -528,20 +551,17 @@ button {
   position: relative;
   margin: 5%;
 }
-.modal__content form {
-  display: flex;
-  flex-direction: column;
-}
 .modal__content__close {
   position: absolute;
   top: 20px;
   left: 93%;
-  font-weight: 100;
+  background-color: #db8876;
+  border: none;
   cursor: pointer;
 }
-.modal__content__close img {
-  height: 30px;
-  width: 30px;
+.modal__content form {
+  display: flex;
+  flex-direction: column;
 }
 .modal__content h2 {
   font-size: 3rem;
@@ -631,23 +651,29 @@ button {
   height: 80vh;
   gap: 1rem;
 }
-.lightbox__container__next img, .lightbox__container__prev img {
+.lightbox__container__next, .lightbox__container__prev {
   width: auto;
   height: 35px;
   top: 50%;
   right: 20%;
   margin-top: -14px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 .lightbox__container__prev {
   left: 20%;
 }
-.lightbox__container__close img {
+.lightbox__container__close {
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 10px;
+  right: 5px;
   top: -20px;
   opacity: 0.5;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 .lightbox__container__media img, .lightbox__container__media video {
   width: 75vw;
@@ -661,14 +687,14 @@ button {
   color: #901c1c;
 }
 
-.lightbox span {
+.lightbox button {
   z-index: 11;
   opacity: 0.5;
   cursor: pointer;
   transition: opacity 0.3s;
 }
 
-.lightbox span:hover {
+.lightbox button:hover {
   opacity: 1;
 }
 
@@ -684,10 +710,14 @@ button {
     width: auto;
     height: 25px;
   }
-  .lightbox__container__close img {
+  .lightbox__container__close {
     width: 20px;
     height: 20px;
-    right: 14px;
+    right: -8px;
+  }
+  .lightbox__container__close img {
+    width: 100%;
+    height: 100%;
   }
   .lightbox__container__media img, .lightbox__container__media video {
     height: 60vh;

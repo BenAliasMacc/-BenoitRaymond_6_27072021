@@ -9,19 +9,6 @@ let photographes = [];
 let tagHTML = "";
 let currentArrayOfPhotographe = [];
 
-// Apparition du bouton "Passer au contenu"
-const renderPasserAuContenu = () => {
-  window.addEventListener("scroll", () => {
-    const scrolled = window.scrollY;
-    if (scrolled >= 50) {
-      passerAuContenu.style.display = "block";
-    } else {
-      passerAuContenu.style.display = "none";
-    }
-  });
-};
-renderPasserAuContenu();
-
 // Récupération des données du fetch
 //------------------------------------------------------------
 const fetchAllData = () => {
@@ -37,16 +24,29 @@ const fetchAllData = () => {
 };
 fetchAllData();
 
+// Apparition du bouton "Passer au contenu"
+const renderPasserAuContenu = () => {
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY;
+    if (scrolled >= 50) {
+      passerAuContenu.style.display = "flex";
+    } else {
+      passerAuContenu.style.display = "none";
+    }
+  });
+};
+renderPasserAuContenu();
+
 // Affichage cartes des photographes
 const affichagePhotographes = (arrayOfPhotographe) => {
   arrayOfPhotographe.forEach((photographe) => {
     tagHTML = "";
     photographe.tags.forEach((tag) => {
       tagHTML += `
-        <button onclick="newFilterTag('${tag}')" class="lien-des-tags" tag="${tag}">#${tag}</button>
+        <button onclick="newFilterTag('${tag}')" class="lien-des-tags" data-tag="${tag}">#${tag}</button>
         `;
     });
-    
+
     main.innerHTML += `
         <article class="card">
         <a href="./page-photographe.html?id=${photographe.id}&name=${photographe.name}" class="card__image">
@@ -73,7 +73,8 @@ const filterTag = () => {
   const navigationTags = document.querySelectorAll(".lien-des-tags");
   navigationTags.forEach((btnTag) => {
     btnTag.addEventListener("click", (e) => {
-      let currentTag = e.currentTarget.getAttribute("tag");
+      let currentTag = e.currentTarget.dataset.tag;
+      console.log(currentTag);
       const newArrayOfPhotographe = photographes.filter((p) =>
         p.tags.includes(currentTag)
       );
