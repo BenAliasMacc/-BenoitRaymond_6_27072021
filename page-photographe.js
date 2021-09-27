@@ -125,9 +125,6 @@ const illustrationsPhotographe = () => {
   `;
 };
 
-// Tags : Lien vers les photographes taggés
-//-----------------------------------------------------
-
 // Menu déroulant Filtre
 //----------------------------------------------------
 const actionFiltre = () => {
@@ -159,11 +156,11 @@ const affichageMedias = () => {
     );
     cartes.innerHTML += `
         <article class="carte">
-          <div class="carte__media" title="${
+          <button class="carte__media" title="${
             detailsMedia.title
-          } " data-mediaId="${detailsMedia.id}") tabindex="0">
+          } " data-mediaId="${detailsMedia.id}")>
               ${createMediaFactory(photographe.name, detailsMedia)}
-          </div>
+          </button>
           <div class="carte__infos">
             <h2 class="carte__infos__titre">${detailsMedia.title}</h2>
             <button class="carte__infos__favs" data-select="false" data-likes="${
@@ -303,16 +300,17 @@ const prixJournalier = () => {
 //------------------------------------------------------------
 // Ouverture Lightbox
 const ouvrirLightbox = () => {
-  const video = document.querySelectorAll("video");
   premierFocusLightbox.focus();
   const cartes = document.querySelectorAll(".carte__media");
   cartes.forEach((carte, index) =>
     carte.addEventListener("click", (e) => {
-      console.log("test");
       currentIndex = index;
       main.style.display = "none";
       lightbox.style.display = "flex";
+      lightbox.setAttribute;
       affichageLightbox(currentIndex);
+      const video = lightboxContainer.childNodes[1];
+      video.setAttribute("controls", "controls");
     })
   );
 };

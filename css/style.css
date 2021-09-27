@@ -149,7 +149,11 @@ button {
 }
 .filtre__liste__inactive {
   display: none;
-  margin: 10px;
+  padding: 10px;
+}
+.filtre__liste__inactive:hover {
+  background-color: white;
+  color: #901c1c;
 }
 .filtre__liste .ouverture {
   display: block;
@@ -157,7 +161,7 @@ button {
 .filtre__liste .option1 {
   border-top: white solid 1px;
   border-bottom: white solid 1px;
-  padding: 5px 0;
+  padding: 10px;
 }
 
 @media (max-width: 1048px) {
@@ -283,6 +287,13 @@ button {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 8px;
+  transition: all 0.5s;
+}
+.card__image:hover {
+  transform: scale(1.1);
+}
+.card__image:hover > img {
+  box-shadow: 6px 6px 13px -6px rgba(0, 0, 0, 0.35);
 }
 .card__image img {
   width: 200px;
@@ -290,6 +301,7 @@ button {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, 0.35);
+  transition: all 0.5s;
 }
 .card__image h2 {
   text-align: center;
@@ -345,6 +357,14 @@ button {
 .carte__media {
   grid-column: 1;
   grid-row: 1/1;
+  border: none;
+  box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, 0.35);
+  transform: scale(1);
+}
+.carte__media:hover {
+  box-shadow: 6px 6px 13px -6px rgba(0, 0, 0, 0.35);
+  transform: scale(1.04);
+  transition: all 0.3s;
 }
 .carte__media img,
 .carte__media video {

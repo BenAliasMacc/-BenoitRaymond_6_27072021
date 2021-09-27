@@ -11,8 +11,16 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 8px;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+      & > img {
+        box-shadow: $ombres-elargies;
+      }
+    }
     & img {
       @include illustration-photographe;
+      transition: all 0.5s;
     }
     & h2 {
       text-align: center;
@@ -65,6 +73,14 @@
   &__media {
     grid-column: 1;
     grid-row: 1 / 1;
+    border: none;
+    box-shadow: $ombres;
+    transform: scale(1);
+    &:hover {
+      box-shadow: $ombres-elargies;
+      transform: scale(1.04);
+      transition: all 0.3s;
+    }
     & img,
     video {
       width: 100%;
