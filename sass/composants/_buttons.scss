@@ -1,0 +1,37 @@
+// INDEX : Bouton apparaissant au scroll
+.passer-au-contenu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  width: 182px;
+  background-color: #db8876;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+}
+
+// PAGE-PHOTOGRAPHE : Bouton contacte photographe
+.photographe__contacte {
+  position: absolute;
+  left: 50%;
+  top: 63px;
+  font-size: 1.25rem;
+  @include bouton;
+}
+@media (max-width: 1048px) {
+  .photographe__contacte {
+    position: fixed;
+    height: 35px;
+    top: inherit;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+  }
+}

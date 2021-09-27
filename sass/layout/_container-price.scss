@@ -1,0 +1,28 @@
+// PAGE-PHOTOGRAPHE : Container avec  prix journalier et total des likes
+.container {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #db8876;
+  height: 50px;
+  width: 375px;
+  border-radius: 5px 5px 0 0;
+  & #total-like,
+  #prix-journalier,
+  #prix {
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  #coeur {
+    color: black;
+  }
+}
+@media (max-width: 1048px) {
+  .container {
+    display: none;
+  }
+}

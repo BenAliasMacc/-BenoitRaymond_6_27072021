@@ -10,11 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Police DM Sans -->
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
@@ -50,6 +46,8 @@
         <p class="filtre__label" id="filtre-label">Trier par</p>
         <ul
           class="filtre__liste"
+          tabindex="0"
+          role="menubar"
           aria-controls="dropdown"
           aria-labelledby="filtre-label"
           aria-haspopup="listbox"
@@ -57,8 +55,9 @@
         >
           <li
             class="filtre__liste__active"
+            role="menuitem"
             aria-selected="true"
-            role="button"
+            role="listbox"
             tabindex="0"
           >
             <div class="trie-actuel">Popularité</div>
@@ -66,6 +65,7 @@
           </li>
           <li
             class="filtre__liste__inactive option1"
+            role="menuitem"
             aria-selected="false"
             role="listbox"
             tabindex="0"
@@ -74,6 +74,7 @@
           </li>
           <li
             class="filtre__liste__inactive"
+            role="menuitem"
             aria-selected="false"
             role="listbox"
             tabindex="0"

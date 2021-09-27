@@ -1,0 +1,141 @@
+// INDEX : Cartes photographes
+.card {
+  display: grid;
+  grid-template-columns: 250px;
+  grid-template-rows: 260px 70px 30px;
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    & img {
+      @include illustration-photographe;
+    }
+    & h2 {
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
+  &__infos {
+    text-align: center;
+    padding-top: 0.5rem;
+    &__slogan {
+      margin-bottom: 3px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    &__prix {
+      color: $couleur-tertiaire;
+      font-size: 0.75rem;
+    }
+  }
+  &__liens {
+    display: flex;
+    justify-content: center;
+    & button {
+      @include tags;
+      font-size: 0.75rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $couleur-primaire;
+        color: white;
+      }
+    }
+  }
+}
+
+// PAGE-PHOTOGRAPHE - Cartes médias
+.cartes {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: 350px 350px 350px;
+  row-gap: 35px;
+  justify-content: space-between;
+}
+
+.carte {
+  display: grid;
+  height: 341px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px 31px;
+  row-gap: 10px;
+  &__media {
+    grid-column: 1;
+    grid-row: 1 / 1;
+    & img,
+    video {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+  &__infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    &__titre {
+      margin-right: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &__favs {
+      position: relative;
+      display: flex;
+      font-size: 1.5rem;
+      color: $couleur-primaire;
+      background: white;
+      border: none;
+      cursor: pointer;
+      & span {
+        font-size: 1.25rem;
+      }
+      & i {
+        align-self: center;
+        margin-left: 10px;
+        margin-right: 2px;
+        font-size: 1rem;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px;
+      }
+    }
+  }
+}
+.remplissage {
+  background: $couleur-primaire;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px transparent;
+  animation: remplissage-coeur 1s;
+}
+@media (max-width: 1315px) {
+  .cartes {
+    grid-template-columns: 350px 350px;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 915px) {
+  .cartes {
+    grid-template-columns: 100%;
+    .photographies__card {
+      height: auto;
+      grid-template-rows: auto 31px;
+      &__media {
+        grid-column: 1;
+        grid-row: 1 / 1;
+        & img,
+        video {
+          height: 190px;
+          object-fit: cover;
+          object-position: 50% 20%;
+        }
+      }
+    }
+  }
+}

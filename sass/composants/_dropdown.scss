@@ -1,0 +1,46 @@
+// PAGE-PHOTOGRAPHE : Menu pour les filtres
+.filtre {
+    position: relative;
+    margin-bottom: 58px;
+    &__label {
+      color: black;
+      font-weight: 700;
+      padding-top: 9px;
+    }
+    &__liste {
+      position: absolute;
+      top: 0;
+      left: 80px;
+      @include bouton;
+      height: auto;
+      z-index: 100;
+      & li {
+        color: white;
+      }
+      &__active {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        & .rotation {
+          transform: rotate(0.5turn);
+        }
+      }
+      &__inactive {
+        display: none;
+        margin: 10px;
+      }
+      & .ouverture {
+        display: block;
+      }
+      & .option1 {
+        border-top: white solid 1px;
+        border-bottom: white solid 1px;
+        padding: 5px 0;
+      }
+    }
+  }
+  @media (max-width: 1048px) {
+    .filtre {
+      display: none;
+    }
+  }

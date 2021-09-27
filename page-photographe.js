@@ -16,6 +16,7 @@ const photographeIllustrations = document.querySelector(
 const boutonFiltre = document.querySelector(".filtre__liste__active");
 const listeFiltres = document.querySelectorAll(".filtre__liste__inactive");
 const chevronFiltre = document.querySelector(".fa-chevron-down");
+const trieActuel = document.querySelector(".trie-actuel");
 
 // Cartes
 const cartes = document.querySelector(".cartes");
@@ -44,7 +45,6 @@ const prix = document.getElementById("prix");
 const queryString_URL_Id = window.location.search;
 const searchParamsId = new URLSearchParams(queryString_URL_Id);
 const idPhotographeFromUrl = searchParamsId.get("id");
-const trieActuel = document.querySelector(".trie-actuel");
 
 // Variables globales
 //------------------------------------------------
@@ -86,10 +86,6 @@ const fetchAllData = async () => {
 
       trieMedias();
 
-      ouvrirLightbox();
-
-      incrementationLike();
-
       calculTotalLike();
 
       prixJournalier();
@@ -104,7 +100,7 @@ const tagsPhotographe = () => {
   photographe.tags.forEach((tag) => {
     tagHTML += `
       <li class="photographe__informations__tags__tag">
-        <button tag="${tag}" type="button">#${tag}</button>
+        <a href="./index.html?tag=${tag}" type="button">#${tag}</a>
       </li>
     `;
   });
@@ -129,6 +125,9 @@ const illustrationsPhotographe = () => {
   `;
 };
 
+// Tags : Lien vers les photographes taggés
+//-----------------------------------------------------
+
 // Menu déroulant Filtre
 //----------------------------------------------------
 const actionFiltre = () => {
@@ -144,9 +143,9 @@ boutonFiltre.addEventListener("click", () => actionFiltre());
 //-----------------------------------------------------
 function createMediaFactory(photographe, elt) {
   if (elt.hasOwnProperty("image")) {
-    return `<img src="./Sample Photos/${photographe}/${elt.image}">`;
+    return `<img src="./Sample Photos/${photographe}/${elt.image}" alt="${elt.title}">`;
   } else if (elt.hasOwnProperty("video")) {
-    return `<video src="./Sample Photos/${photographe}/${elt.video}"></video>`;
+    return `<video src="./Sample Photos/${photographe}/${elt.video}"" alt="${elt.title}"></video>`;
   }
 }
 
@@ -162,9 +161,7 @@ const affichageMedias = () => {
         <article class="carte">
           <div class="carte__media" title="${
             detailsMedia.title
-          } "href="./Sample Photos/${photographe.name}/${
-      detailsMedia.image || detailsMedia.video
-    }" data-mediaId="${detailsMedia.id}") tabindex="0">
+          } " data-mediaId="${detailsMedia.id}") tabindex="0">
               ${createMediaFactory(photographe.name, detailsMedia)}
           </div>
           <div class="carte__infos">
@@ -174,12 +171,15 @@ const affichageMedias = () => {
             }" type="button">
               <span class="nombres-de-likes">${
                 detailsMedia.likes
-              }</span> <i class="fas fa-heart" aria-label="likes"></i>
+              }</span><i class="fas fa-heart" aria-label="likes"></i>
             </button>
           </div>
         </article>
       `;
   });
+  ouvrirLightbox();
+
+  incrementationLike();
 };
 
 // Trie des médias
@@ -188,13 +188,15 @@ const trieMedias = () => {
   listeFiltres.forEach((element) => {
     element.addEventListener("click", (e) => {
       trie = e.currentTarget.textContent;
+      console.log(trie);
       option = trieActuel.textContent;
-      if (trie === "Date") {
+      console.log(option);
+      if (trie.includes("Date")) {
         photographeMedias.sort((a, b) => (a.date < b.date ? 1 : -1));
         element.textContent = option;
         trieActuel.textContent = trie;
       }
-      if (trie === "Titre") {
+      if (trie.includes("Titre")) {
         photographeMedias.sort((a, b) => (a.title < b.title ? 1 : -1));
         element.textContent = option;
         trieActuel.textContent = trie;
@@ -205,7 +207,7 @@ const trieMedias = () => {
         trieActuel.textContent = trie;
       }
       cartes.innerHTML = "";
-      affichageMedias(photographeMedias);
+      affichageMedias();
     });
   });
 };
@@ -271,17 +273,14 @@ const incrementationLike = () => {
 
 const ajoutLike = (like) => {
   const coeur = document.querySelectorAll(".fa-heart");
-  console.log(coeur);
-  console.log(like);
-  console.log(like.childNodes[3]);
   if (like.dataset.select == "true") {
     like.dataset.select = "false";
     like.childNodes[1].textContent = Number(like.childNodes[1].textContent) - 1;
-    like.childNodes[3].classList.remove("remplissage");
+    like.childNodes[2].classList.remove("remplissage");
   } else {
     like.dataset.select = "true";
     like.childNodes[1].textContent = Number(like.childNodes[1].textContent) + 1;
-    like.childNodes[3].classList.add("remplissage");
+    like.childNodes[2].classList.add("remplissage");
   }
 };
 
@@ -302,13 +301,14 @@ const prixJournalier = () => {
 
 // Lightbox
 //------------------------------------------------------------
-
 // Ouverture Lightbox
 const ouvrirLightbox = () => {
+  const video = document.querySelectorAll("video");
   premierFocusLightbox.focus();
   const cartes = document.querySelectorAll(".carte__media");
   cartes.forEach((carte, index) =>
-    carte.addEventListener("click", () => {
+    carte.addEventListener("click", (e) => {
+      console.log("test");
       currentIndex = index;
       main.style.display = "none";
       lightbox.style.display = "flex";

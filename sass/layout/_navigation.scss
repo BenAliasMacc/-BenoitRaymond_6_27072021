@@ -1,0 +1,39 @@
+// INDEX : Barre de navigation de l'en-tête
+.nav {
+  display: flex;
+  align-items: center;
+  &__liste {
+    display: flex;
+    &__lien button {
+      @include tags;
+      font-size: 0.75rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $couleur-primaire;
+        color: white;
+      }
+    }
+  }
+}
+
+@media (max-width: 1140px) {
+  .nav {
+    width: 100%;
+    margin-top: 40px;
+    &__liste {
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      &__lien {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .nav {
+    &__liste {
+      justify-content: center;
+    }
+  }
+}

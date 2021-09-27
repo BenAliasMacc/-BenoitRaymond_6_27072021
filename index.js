@@ -2,12 +2,21 @@
 //-----------------------------------------------------------------------
 const main = document.querySelector(".main");
 const passerAuContenu = document.querySelector(".passer-au-contenu");
+const navigationTags = document.querySelectorAll(".lien-des-tags");
 
 // Variables globales
 //-----------------------------------------------------------------------
 let photographes = [];
 let tagHTML = "";
 let currentArrayOfPhotographe = [];
+let currentTag = "";
+
+// Récupération de l'ID dans l'URL
+//------------------------------------------------
+const queryString_URL_Tag = window.location.search;
+const searchParamsTag = new URLSearchParams(queryString_URL_Tag);
+const tagFromUrl = searchParamsTag.get("tag");
+currentTag = tagFromUrl;
 
 // Récupération des données du fetch
 //------------------------------------------------------------
@@ -19,7 +28,9 @@ const fetchAllData = async () => {
 
       affichagePhotographes(photographes);
 
-      filterTag();
+      if (tagFromUrl) {
+        filterTag();
+      }
     });
 };
 fetchAllData();
@@ -49,7 +60,7 @@ const affichagePhotographes = (arrayOfPhotographe) => {
 
     main.innerHTML += `
         <article class="card">
-          <a href="./page-photographe.html?id=${photographe.id}&name=${photographe.name}" class="card__image">
+          <a href="./page-photographe.html?id=${photographe.id}&name=${photographe.name}" class="card__image" role="button">
             <img src="./Sample Photos/Photographers ID Photos/${photographe.portrait}" alt="portrait ${photographe.name}" />
             <h2>${photographe.name}</h2>
           </a>
@@ -70,20 +81,21 @@ const affichagePhotographes = (arrayOfPhotographe) => {
 
 // Filtre principal
 const filterTag = () => {
-  const navigationTags = document.querySelectorAll(".lien-des-tags");
-  navigationTags.forEach((btnTag) => {
-    btnTag.addEventListener("click", (e) => {
-      let currentTag = e.currentTarget.dataset.tag;
-      console.log(currentTag);
-      const newArrayOfPhotographe = photographes.filter((p) =>
-        p.tags.includes(currentTag)
-      );
-      currentArrayOfPhotographe = [...newArrayOfPhotographe];
-      main.innerHTML = "";
-      affichagePhotographes(newArrayOfPhotographe);
-    });
-  });
+  const newArrayOfPhotographe = photographes.filter((p) =>
+    p.tags.includes(currentTag)
+  );
+  currentArrayOfPhotographe = [...newArrayOfPhotographe];
+  main.innerHTML = "";
+  affichagePhotographes(newArrayOfPhotographe);
 };
+
+navigationTags.forEach((btnTag) => {
+  btnTag.addEventListener("click", (e) => {
+    currentTag = e.currentTarget.dataset.tag;
+    console.log(currentTag);
+    filterTag();
+  });
+});
 
 // Filtre secondaire
 function newFilterTag(tag) {

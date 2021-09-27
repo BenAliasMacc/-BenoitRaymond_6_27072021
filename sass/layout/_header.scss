@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto 7% 100px 7%;
+  &__logo {
+    width: 150px;
+    & img {
+      width: 150px;
+    }
+  }
+  &__titre {
+    order: 1;
+  }
+}
+
+@media (max-width: 1140px) {
+  .header {
+    &__titre {
+      order: 0;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 477px) {
+  .header {
+    &__titre {
+      font-size: 1rem;
+    }
+  }
+}
+@media (max-width: 348px) {
+  .header {
+    display: block;
+    &__titre {
+      text-align: center;
+      margin: 24px;
+    }
+  }
+}
+
+// PAGE PHOTOGRAPHE : Ajustement de la marge
+.page-photographe {
+  header {
+    margin-bottom: 2rem;
+  }
+}

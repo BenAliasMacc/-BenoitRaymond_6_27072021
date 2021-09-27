@@ -1,0 +1,19 @@
+.main {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  row-gap: 55px;
+  justify-content: space-between;
+  margin: auto 7% 4rem 7%;
+}
+
+@media (max-width: 992px) {
+    .main {
+      justify-content: space-around;
+      grid-template-columns: 250px 250px;
+    }
+  }
+  @media (max-width: 768px) {
+    .main {
+      grid-template-columns: 250px;
+    }
+  }
