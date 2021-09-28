@@ -92,17 +92,21 @@ const filterTag = () => {
 navigationTags.forEach((btnTag) => {
   btnTag.addEventListener("click", (e) => {
     currentTag = e.currentTarget.dataset.tag;
-    console.log(currentTag);
     filterTag();
   });
 });
 
 // Filtre secondaire
 function newFilterTag(tag) {
-  const newArrayOfPhotographe = currentArrayOfPhotographe.filter((p) =>
-    p.tags.includes(tag)
-  );
-  currentArrayOfPhotographe = [...newArrayOfPhotographe];
-  main.innerHTML = "";
-  affichagePhotographes(newArrayOfPhotographe);
+  if (currentArrayOfPhotographe == "") {
+    currentTag = tag;
+    filterTag();
+  } else {
+    const newArrayOfPhotographe = currentArrayOfPhotographe.filter((p) =>
+      p.tags.includes(tag)
+    );
+    currentArrayOfPhotographe = [...newArrayOfPhotographe];
+    main.innerHTML = "";
+    affichagePhotographes(newArrayOfPhotographe);
+  }
 }

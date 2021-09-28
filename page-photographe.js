@@ -151,9 +151,6 @@ const affichageMedias = () => {
     photographeMedias.sort((a, b) => (a.likes < b.likes ? 1 : -1));
   }
   photographeMedias.forEach((detailsMedia) => {
-    const fav = document.querySelectorAll(
-      ".photographies__card__text-content__favs"
-    );
     cartes.innerHTML += `
         <article class="carte">
           <button class="carte__media" title="${
@@ -269,7 +266,6 @@ const incrementationLike = () => {
 };
 
 const ajoutLike = (like) => {
-  const coeur = document.querySelectorAll(".fa-heart");
   if (like.dataset.select == "true") {
     like.dataset.select = "false";
     like.childNodes[1].textContent = Number(like.childNodes[1].textContent) - 1;
@@ -303,7 +299,7 @@ const ouvrirLightbox = () => {
   premierFocusLightbox.focus();
   const cartes = document.querySelectorAll(".carte__media");
   cartes.forEach((carte, index) =>
-    carte.addEventListener("click", (e) => {
+    carte.addEventListener("click", () => {
       currentIndex = index;
       main.style.display = "none";
       lightbox.style.display = "flex";
