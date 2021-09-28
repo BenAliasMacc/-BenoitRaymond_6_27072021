@@ -23,6 +23,7 @@ const cartes = document.querySelector(".cartes");
 
 // Modal
 const modal = document.querySelector(".modal");
+const nomPhotographe = document.getElementById("nom_photographe");
 const BoutonContact = document.querySelector(".photographe__contacte");
 const closeModal = document.querySelector(".modal__content__close");
 const focusModal = document.getElementsByClassName("focus-modal");
@@ -134,6 +135,12 @@ const actionFiltre = () => {
   });
 };
 
+// boutonFiltre.addEventListener("keyup", (e) => {
+//   if (e.key === "Enter") {
+//     actionFiltre();
+//   }
+// });
+
 boutonFiltre.addEventListener("click", () => actionFiltre());
 
 // Affichage des médias
@@ -213,6 +220,7 @@ BoutonContact.addEventListener("click", () => {
   body.style.overflow = "hidden";
   modal.style.display = "block";
   premierFocusModal.focus();
+  nomPhotographe.textContent = photographe.name;
 });
 
 const fermetureModal = (e) => {

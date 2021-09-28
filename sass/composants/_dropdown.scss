@@ -9,24 +9,33 @@
   }
   &__liste {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 0;
     left: 80px;
+    z-index: 100;
     @include bouton;
     height: auto;
-    z-index: 100;
-    & li {
+    & button {
+      background-color: $couleur-primaire;
       color: white;
+      border: none;
+      cursor: pointer;
     }
     &__active {
       display: flex;
+      width: 100%;
       justify-content: space-between;
-      margin: 10px;
+      padding: 10px;
       & .rotation {
         transform: rotate(0.5turn);
       }
     }
     &__inactive {
       display: none;
+      text-align: left;
+      width: 100%;
       padding: 10px;
       &:hover {
         background-color: white;

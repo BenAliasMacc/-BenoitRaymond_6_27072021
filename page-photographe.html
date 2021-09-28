@@ -44,44 +44,40 @@
       <!-- Section 2 : Filtre -->
       <section class="filtre">
         <p class="filtre__label" id="filtre-label">Trier par</p>
-        <ul
+        <div
           class="filtre__liste"
-          tabindex="0"
           role="menubar"
           aria-controls="dropdown"
           aria-labelledby="filtre-label"
           aria-haspopup="listbox"
           aria-expanded="false"
         >
-          <li
+          <button
             class="filtre__liste__active"
-            role="menuitem"
             aria-selected="true"
             role="listbox"
             tabindex="0"
           >
             <div class="trie-actuel">Popularité</div>
             <i class="fa fa-chevron-down"></i>
-          </li>
-          <li
+          </button>
+          <button
             class="filtre__liste__inactive option1"
-            role="menuitem"
             aria-selected="false"
             role="listbox"
             tabindex="0"
           >
             Date
-          </li>
-          <li
+          </button>
+          <button
             class="filtre__liste__inactive"
-            role="menuitem"
             aria-selected="false"
             role="listbox"
             tabindex="0"
           >
             Titre
-          </li>
-        </ul>
+          </button>
+        </div>
       </section>
 
       <!-- Section 3 : cartes -->
@@ -107,7 +103,7 @@
       <!-- Section 5 : modal -->
       <section class="modal">
         <div class="modal__content">
-          <h2>Contactez-moi<br />Mimi Keel</h2>
+          <h2>Contactez-moi<br /><span id="nom_photographe"></span></h2>
           <form>
             <label class="modal__content--typo" for="prenom">Prénom</label>
             <input

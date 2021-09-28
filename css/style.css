@@ -124,8 +124,12 @@ button {
 }
 .filtre__liste {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   top: 0;
   left: 80px;
+  z-index: 100;
   width: 170px;
   height: 69px;
   border: none;
@@ -134,21 +138,26 @@ button {
   background-color: #901c1c;
   cursor: pointer;
   height: auto;
-  z-index: 100;
 }
-.filtre__liste li {
+.filtre__liste button {
+  background-color: #901c1c;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 .filtre__liste__active {
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  margin: 10px;
+  padding: 10px;
 }
 .filtre__liste__active .rotation {
   transform: rotate(0.5turn);
 }
 .filtre__liste__inactive {
   display: none;
+  text-align: left;
+  width: 100%;
   padding: 10px;
 }
 .filtre__liste__inactive:hover {
@@ -590,7 +599,8 @@ button {
   display: flex;
   flex-direction: column;
 }
-.modal__content h2 {
+.modal__content h2,
+.modal__content #nom_photographe {
   font-size: 3rem;
   color: black;
   margin-bottom: 20px;
@@ -633,7 +643,8 @@ button {
     height: 15px;
     width: 15px;
   }
-  .modal__content h2 {
+  .modal__content h2,
+.modal__content #nom_photographe {
     font-size: 1.5rem;
     color: black;
     margin-bottom: 20px;
