@@ -250,7 +250,7 @@ const trapModal = (e) => {
   if (e.key === "Escape" || e.key === "Esc") {
     fermetureModal(e);
   }
-  console.log(document.activeElement.textContent);
+  console.log(document.activeElement.value);
 };
 
 modal.addEventListener("keydown", trapModal);
