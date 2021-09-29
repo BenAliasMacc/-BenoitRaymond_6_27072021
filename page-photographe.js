@@ -135,12 +135,6 @@ const actionFiltre = () => {
   });
 };
 
-// boutonFiltre.addEventListener("keyup", (e) => {
-//   if (e.key === "Enter") {
-//     actionFiltre();
-//   }
-// });
-
 boutonFiltre.addEventListener("click", () => actionFiltre());
 
 // Affichage des médias
@@ -329,7 +323,6 @@ closeLightbox.addEventListener("click", fermerLightbox);
 
 // Affichage Lightbox
 const affichageLightbox = (mediaId) => {
-  console.log();
   lightboxContainer.innerHTML = `
     ${createMediaFactory(photographe.name, photographeMedias[mediaId])}
     <figcaption>${photographeMedias[mediaId].title}</figcaption>
@@ -343,6 +336,8 @@ const showNext = () => {
     currentIndex = 0;
   }
   affichageLightbox(currentIndex);
+  const video = lightboxContainer.childNodes[1];
+  video.setAttribute("controls", "controls");
 };
 
 lightboxNext.addEventListener("click", showNext);
@@ -353,6 +348,8 @@ const showPrev = () => {
     currentIndex = photographeMedias.length - 1;
   }
   affichageLightbox(currentIndex);
+  const video = lightboxContainer.childNodes[1];
+  video.setAttribute("controls", "controls");
 };
 
 lightboxPrev.addEventListener("click", showPrev);

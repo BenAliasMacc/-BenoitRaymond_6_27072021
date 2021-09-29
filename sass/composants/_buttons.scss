@@ -15,6 +15,7 @@
   font-size: 1rem;
   font-weight: 700;
   color: black;
+  z-index: 100;
 }
 
 // PAGE-PHOTOGRAPHE : Bouton contacte photographe
@@ -23,6 +24,7 @@
   left: 50%;
   top: 63px;
   font-size: 1.25rem;
+  z-index: 110;
   @include bouton;
 }
 @media (max-width: 1048px) {

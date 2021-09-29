@@ -87,6 +87,7 @@ button {
   font-size: 1rem;
   font-weight: 700;
   color: black;
+  z-index: 100;
 }
 
 .photographe__contacte {
@@ -94,6 +95,7 @@ button {
   left: 50%;
   top: 63px;
   font-size: 1.25rem;
+  z-index: 110;
   width: 170px;
   height: 69px;
   border: none;
